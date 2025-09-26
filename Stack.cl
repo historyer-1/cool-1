@@ -97,6 +97,11 @@ class Stack inherits IO{
 
 };
 
+-- 测试类，用于测试将对象插入栈
+class Test{
+
+};
+
 class Main inherits IO{
     main() : Int{
         {
@@ -109,6 +114,7 @@ class Main inherits IO{
                 stack.push(1);
                 stack.push("hello");
                 stack.push(42);
+                stack.push((new Test));
 
                 out_string("Printing stack: ");
                 stack.print();
@@ -133,6 +139,7 @@ class Main inherits IO{
                 stack.print();
 
                 out_string("Popping remaining elements\n");
+                stack.pop();
                 stack.pop();
                 stack.pop();
 
