@@ -1,4 +1,4 @@
-class Node {
+class Node inherits IO{
     val  : Int;
     left  : Node;
     right  : Node;
@@ -29,9 +29,32 @@ class Node {
             self;
         }
     };
+
+    getVal() : Int{
+        val
+    };
+
+    print() : Node{
+        {
+            if not (isvoid left) then
+                left.print()
+            else
+                0  
+            fi;
+            out_int(val);
+            out_string(" ");
+            if not (isvoid right) then
+                right.print()
+            else
+                0  
+            fi;
+            self;
+        }
+
+    };
 };
 
-class BTree {
+class BTree inherits IO{
     root : Node;
 
     init(v : Int) : BTree{
@@ -49,7 +72,24 @@ class BTree {
 
     };
 
+    print() : BTree{
+        if isvoid root then
+        {
+            out_string("The tree is empty");
+            self;
+        }
+        else
+        {
+            root.print();
+            self;
+        }
+        fi  
+    };
+
+
 };
+
+
 
 class Main {
     main() : Int{
@@ -57,6 +97,9 @@ class Main {
             let bt : BTree <- (new BTree).init(6) in 
             {
                 bt.insert(3);
+                bt.insert(9);
+                bt.insert(17);
+                bt.print();
             };
             0;
         }
